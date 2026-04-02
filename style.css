@@ -10,6 +10,17 @@
   --shadow-soft: 0 10px 25px rgba(2, 6, 23, 0.08);
   --accent: #4f46e5;
   --accent-2: #06b6d4;
+  --accent-radial-1: rgba(79, 70, 229, 0.10);
+  --accent-radial-2: rgba(6, 182, 212, 0.10);
+  --accent-badge-bg: rgba(79, 70, 229, 0.04);
+  --accent-dot-ring: rgba(79, 70, 229, 0.12);
+  --accent-hover-border: rgba(79, 70, 229, 0.28);
+  --btn-bg: rgba(255, 255, 255, 0.6);
+  --btn-hover-shadow: 0 16px 38px rgba(2, 6, 23, 0.12);
+  --plan-item-bg: rgba(2, 6, 23, 0.015);
+  --footer-note: rgba(71, 85, 105, 0.9);
+  --theme-btn-bg: rgba(255, 255, 255, 0.45);
+  --theme-btn-hover-bg: rgba(255, 255, 255, 0.65);
   --radius: 18px;
 }
 
@@ -27,8 +38,8 @@ body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans",
     "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background: radial-gradient(1200px circle at 15% 0%, rgba(79, 70, 229, 0.10), transparent 55%),
-    radial-gradient(900px circle at 85% 10%, rgba(6, 182, 212, 0.10), transparent 50%), var(--bg);
+  background: radial-gradient(1200px circle at 15% 0%, var(--accent-radial-1), transparent 55%),
+    radial-gradient(900px circle at 85% 10%, var(--accent-radial-2), transparent 50%), var(--bg);
 }
 
 .page {
@@ -56,6 +67,13 @@ body {
   margin-bottom: 18px;
 }
 
+.top-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
 .title {
   margin: 0;
   font-size: 22px;
@@ -72,7 +90,7 @@ body {
 .badge {
   flex: none;
   border: 1px solid var(--border);
-  background: rgba(79, 70, 229, 0.04);
+  background: var(--accent-badge-bg);
   color: var(--accent);
   font-weight: 650;
   padding: 10px 12px;
@@ -110,7 +128,7 @@ hr {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px 14px;
-  background: rgba(2, 6, 23, 0.015);
+  background: var(--plan-item-bg);
 }
 
 .plan-item h3 {
@@ -146,7 +164,7 @@ hr {
   padding: 12px 14px;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--btn-bg);
   box-shadow: var(--shadow-soft);
   text-decoration: none;
   color: var(--text);
@@ -159,19 +177,83 @@ hr {
   height: 10px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+  box-shadow: 0 0 0 4px var(--accent-dot-ring);
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  border-color: rgba(79, 70, 229, 0.28);
-  box-shadow: 0 16px 38px rgba(2, 6, 23, 0.12);
+  border-color: var(--accent-hover-border);
+  box-shadow: var(--btn-hover-shadow);
 }
 
 .footer-note {
   margin-top: 14px;
-  color: rgba(71, 85, 105, 0.9);
+  color: var(--footer-note);
   font-size: 12.5px;
   line-height: 1.5;
+}
+
+.theme-switch {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.theme-btn {
+  border: 1px solid var(--border);
+  background: var(--theme-btn-bg);
+  color: var(--text);
+  font-weight: 650;
+  font-size: 12.5px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.theme-btn:hover {
+  transform: translateY(-1px);
+  background: var(--theme-btn-hover-bg);
+  border-color: var(--accent-hover-border);
+}
+
+.theme-btn.is-active {
+  border-color: var(--accent-hover-border);
+  box-shadow: 0 0 0 4px var(--accent-dot-ring);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f172a;
+  --text: #e5e7eb;
+  --muted: rgba(226, 232, 240, 0.72);
+  --border: rgba(148, 163, 184, 0.22);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.40);
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.28);
+  --accent: #8b5cf6;
+  --accent-2: #22d3ee;
+  --accent-radial-1: rgba(139, 92, 246, 0.20);
+  --accent-radial-2: rgba(34, 211, 238, 0.18);
+  --accent-badge-bg: rgba(139, 92, 246, 0.14);
+  --accent-dot-ring: rgba(139, 92, 246, 0.26);
+  --accent-hover-border: rgba(139, 92, 246, 0.40);
+  --btn-bg: rgba(148, 163, 184, 0.12);
+  --btn-hover-shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
+  --plan-item-bg: rgba(148, 163, 184, 0.08);
+  --footer-note: rgba(148, 163, 184, 0.85);
+  --theme-btn-bg: rgba(148, 163, 184, 0.10);
+  --theme-btn-hover-bg: rgba(148, 163, 184, 0.16);
+}
+
+@media (max-width: 560px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .top-right {
+    align-items: flex-start;
+  }
 }
 

@@ -14,7 +14,17 @@
             <h1 class="title">个人 Cursor 学习计划展示</h1>
             <p class="subtitle">用极简结构记录学习目标，按周迭代：阅读、实践、复盘。</p>
           </div>
-          <div class="badge">简洁 · 可维护 · 可扩展</div>
+          <div class="top-right">
+            <div class="badge">简洁 · 可维护 · 可扩展</div>
+            <div class="theme-switch" role="group" aria-label="主题切换">
+              <button type="button" class="theme-btn" data-theme-value="light" aria-pressed="false">
+                浅色
+              </button>
+              <button type="button" class="theme-btn" data-theme-value="dark" aria-pressed="false">
+                深色
+              </button>
+            </div>
+          </div>
         </header>
 
         <section aria-labelledby="cursor-intro">
@@ -82,6 +92,43 @@
         </section>
       </article>
     </main>
+    <script>
+      (() => {
+        const storageKey = "cursor-demo-page-theme";
+        const themes = ["light", "dark"];
+        const root = document.documentElement;
+        const buttons = Array.from(document.querySelectorAll("[data-theme-value]"));
+
+        function setTheme(theme) {
+          if (!themes.includes(theme)) theme = "light";
+          root.dataset.theme = theme;
+
+          try {
+            localStorage.setItem(storageKey, theme);
+          } catch (_) {}
+
+          buttons.forEach((btn) => {
+            const isActive = btn.getAttribute("data-theme-value") === theme;
+            btn.classList.toggle("is-active", isActive);
+            btn.setAttribute("aria-pressed", String(isActive));
+          });
+        }
+
+        const savedTheme = (() => {
+          try {
+            return localStorage.getItem(storageKey);
+          } catch (_) {
+            return null;
+          }
+        })();
+
+        setTheme(savedTheme || "light");
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => setTheme(btn.getAttribute("data-theme-value")));
+        });
+      })();
+    </script>
   </body>
 </html>
 
