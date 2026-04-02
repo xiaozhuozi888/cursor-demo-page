@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursor 学习计划展示</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page" aria-label="个人 Cursor 学习计划展示">
+      <article class="card">
+        <header class="top">
+          <div>
+            <h1 class="title">个人 Cursor 学习计划展示</h1>
+            <p class="subtitle">用极简结构记录学习目标，按周迭代：阅读、实践、复盘。</p>
+          </div>
+          <div class="badge">简洁 · 可维护 · 可扩展</div>
+        </header>
+
+        <section aria-labelledby="cursor-intro">
+          <h2 class="section-title" id="cursor-intro">Cursor 介绍</h2>
+          <p class="text">
+            Cursor 是一款面向代码工作的 AI 编辑器。它能在你编写与改造代码时提供智能补全、解释与建议，
+            并通过对话与指令帮助你把“想法”落到“可运行的实现”上。
+          </p>
+        </section>
+
+        <hr />
+
+        <section aria-labelledby="learning-plan">
+          <h2 class="section-title" id="learning-plan">学习计划</h2>
+          <div class="plan" role="list" aria-label="四周学习计划">
+            <div class="plan-item" role="listitem">
+              <h3>第 1 周：上手与工作流建立</h3>
+              <p>熟悉基本对话、改写代码与解释输出；用 1 个小功能做完整闭环（需求 -> 实现 -> 验证）。</p>
+            </div>
+            <div class="plan-item" role="listitem">
+              <h3>第 2 周：提示词与上下文规则</h3>
+              <p>学习如何提供清晰上下文（文件/片段/约束）；练习“给目标 + 给输入 + 给验收标准”。</p>
+            </div>
+            <div class="plan-item" role="listitem">
+              <h3>第 3 周：从示例到复用</h3>
+              <p>把常用需求抽象成可复用指令模板；选择一个主题（例如重构/调试/测试）持续练习。</p>
+            </div>
+            <div class="plan-item" role="listitem">
+              <h3>第 4 周：项目化练习与复盘</h3>
+              <p>挑一个小项目进行端到端迭代；记录每次对话的关键决策点与失败原因，形成个人经验。 </p>
+            </div>
+          </div>
+
+          <p class="footer-note">
+            建议节奏：每次学习固定 30-60 分钟，结束后用 5 分钟写下“我学到了什么/下一步怎么做”。
+          </p>
+        </section>
+
+        <hr />
+
+        <section aria-labelledby="knowledge-links">
+          <h2 class="section-title" id="knowledge-links">两个 Cursor 知识连接按钮</h2>
+          <div class="actions" role="group" aria-label="知识连接按钮">
+            <a
+              class="btn"
+              href="https://docs.cursor.com/get-started/introduction"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="打开 Cursor 入门文档"
+            >
+              <span class="dot" aria-hidden="true"></span>
+              Cursor 入门
+            </a>
+            <a
+              class="btn"
+              href="https://docs.cursor.com/en/context/rules"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="打开 Cursor 上下文与规则文档"
+            >
+              <span class="dot" aria-hidden="true"></span>
+              上下文规则
+            </a>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
+
